@@ -20,7 +20,7 @@ function func_pegar_pagina($atts){
 	}
     $atts = shortcode_atts(array('url'=>''),$atts);
     $url = $atts['url'];
-    $screen = get_current_screen();
+    
     ob_start();
 	wp_head();
 	$header = ob_get_clean();
