@@ -13,9 +13,18 @@ add_filter( 'template_include', 'substituir_template',99);
 function func_pegar_pagina($atts){
     $atts = shortcode_atts(array('url'=>''),$atts);
     $url = $atts['url'];
+    
+    ob_start();
+	wp_head();
+	$header = ob_get_clean();
+	ob_start();
+	wp_footer();
+	$footer = ob_get_clean();
+
     $pagina = file_get_contents($url);
 
-    $pagina = str_ireplace("</head>","<?php wp_header(); ?></head>",$pagina);
+    $pagina = str_ireplace("</head>",$header."</head>",$pagina);
+    $pagina = str_ireplace("</body>",$footer."</body>",$pagina);
 
     $pagina = str_ireplace("%5B","[",$pagina);
     $pagina = str_ireplace("%5D","]",$pagina);
