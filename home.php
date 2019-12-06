@@ -14,8 +14,13 @@ function func_pegar_pagina($atts){
     $atts = shortcode_atts(array('url'=>''),$atts);
     $url = $atts['url'];
     $pagina = file_get_contents($url);
+
+    $pagina = str_ireplace("</head>","<?php wp_header(); ?></head>",$pagina);
+
     $pagina = str_ireplace("%5B","[",$pagina);
     $pagina = str_ireplace("%5D","]",$pagina);
+    
+
     $pagina = do_shortcode( $pagina );
     return $pagina;
 }
