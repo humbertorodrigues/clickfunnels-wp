@@ -11,9 +11,16 @@ add_shortcode( 'clickfunnels' , 'func_pegar_pagina' );
 add_filter( 'template_include', 'substituir_template',99);
 
 function func_pegar_pagina($atts){
+
+	if ( isset($_GET['action']) ) {
+		if($_GET['action']=="edit"){
+
+	    	return;
+		}
+	}
     $atts = shortcode_atts(array('url'=>''),$atts);
     $url = $atts['url'];
-    
+    $screen = get_current_screen();
     ob_start();
 	wp_head();
 	$header = ob_get_clean();
