@@ -1,6 +1,6 @@
 # ClickFunnels-WP
 
-Import a clickfunnel page inside WP without changing your domain DNSs
+Import a clickfunnel page inside Wordpress without changing your domain DNSs
 
 ## Getting Started
 
