@@ -1,3 +1,4 @@
+Mudei o read pra confirmar que isso não chegará ao repo original
 # ClickFunnels-Wordpress
 
 Import a clickfunnel page inside Wordpress without changing your domain DNSs
